@@ -1,0 +1,6 @@
+[submodule "Thema05 - Genomica praktijk/diagnosticgenomeanalysis"]
+	path = Thema05 - Genomica praktijk/diagnosticgenomeanalysis
+	url = https://cappuchinese@bitbucket.org/cappuchinese/diagnosticgenomeanalysis.git
+[submodule "Thema06 - BLAST basics/difficultdata"]
+	path = Thema06 - BLAST basics/difficultdata
+	url = https://github.com/cappuchinese/difficultdata.git
