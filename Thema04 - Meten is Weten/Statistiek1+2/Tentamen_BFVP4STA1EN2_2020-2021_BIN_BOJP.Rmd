@@ -1,0 +1,272 @@
+---
+title: "Tentamen_BFVP4STA1E2"
+author: "Jasper Bosman"
+date: "15/juni/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Voorblad
+* Code: BFVP4STA1EN2
+* Tentamen: Statistiek 1&2
+* Datum: 15-06-2021
+* Tijd: 08.30 - 10.00
+* School: SILS
+* Lokaal: @home
+* Klas: BFV1 a,b
+* Duur: 1.5 uur
+* Docent: Jasper Bosman. Naam docent collegiale consultatie (Fenna Feenstra)
+* Tijdens het tentamen te bereiken: secretariaat ILST:  050 - 595 45 69  
+* Hulpmiddelen: Formuleblad & statistische tabellen
+
+
+# Instructie
+Dit tentamen bevat 10 opdrachten, eventueel met deelopdrachten. 
+Maak alle opdrachten in dit document door R-code blokken toe te voegen.
+
+<b>Het is de bedoeling dat je ALLES IN 1 SCRIPT UITWERKT. Het script geef je op deze wijze een naam: voornaam_achternaam_STA1_2.rmd (bijvoorbeeld: Jasper_Bosman_STA1_2.rmd).</b> 
+
+<b>Zet bovenaan het script je naam en studentnummer en de naam van de computer waaraan je nu werkt</b>
+
+Voor alle opdrachten is aangegeven hoeveel punten er mee te halen zijn. Het maximaal aantal te behalen punten is 52 Je cijfer wordt zo berekend: cijfer = 1 + ((behaalde punten/maximum aantal punten)*9). 
+
+Aan het einde van de toets moet je het gemaakte werk inleveren in de daarvoor bestemde folder in de Blackboard tentamenomgeving.
+
+
+# Personalia
+* Naam student: `Lisa Hu`
+* Studentnummer: `414264`
+* Opmerking student: **De nummering van de vragen is fout: er zijn 13 vragen ipv 10. Na `vraag 7` is er nogmaals een `vraag 6` waarna het verder telt. Ook staat er bij de `2e vraag 6` 8 punten voorgeschreven, maar er zijn maar 4 te behalen. In totaal zijn het ook geen `52 punten`, maar `43 punten`. Ik hoop dat er voor het volgende tentamen dit beter wordt nagecheckt, want dit kan mij voorstellen dat studenten hier van slag raken. Verder een fijne dag gewenst.**
+
+
+
+# Vraag 1 [3pt]
+Geven de volgende dataset: [1,2,40,11,13,19]
+```{r, echo=FALSE}
+x <- c(1,2,40,11,13,19)
+```
+
+
+a) Bereken het gemiddelde [1pt]
+```{r}
+mean(x)
+```
+
+b) Bereken de mediaan [1pt]
+```{r}
+median(x)
+```
+
+c) Welke "statistic" is robuuster? verklaar je antwoord [1pt]
+```{r}
+
+```
+
+
+# Vraag 2 [3pt]
+Gegeven de volgende dataset: [14, 15, 13, 21, 15, 14, 26, 16, 20, 13]
+```{r, echo=FALSE}
+x <- c(14, 15, 13, 21, 15, 14, 26, 16, 20, 13) 
+```
+a) Geeft de zo genaamde "five number summary"" en verklaar de resultaten [1pt]
+```{r}
+fivenum(x)
+```
+* `13` is het kleinste getal.
+* `14` is het eerste kwartiel
+* `15` is de mediaan van de getallen.
+* `20` is het derde kwartiel.
+* `26` is het grootste getal.
+
+b) Bepaal de interquartile range [1pt]
+```{r}
+IQR(x)
+```
+
+c) Laat door een berekening zien of er wel of niet een outlier in de dataset zit [1pt]
+```{r}
+
+```
+
+# Vraag 3 [2pt]
+Een paleontoloog heeft de breedte (in mm) van de laatste bovenste kies in 36 exemplaren van het uitgestorven zoogdier Acropithecus rigidus gemeten. De resultaten waren als volgt: 
+[12,6.1,5.7,6.0,6.5,6.0,5.7,6.1,5.8,5.9,6.0,6.2,6.0,6.3,6.2,6.0,6.2,6.0,5.7,6.2,5.8,5.7,6.3,6.2,5.7,6.2,6.1,5.9,6.5,5.4,6.7,5.9,6.1,5.9,5.9,6.1,6.1]
+
+```{r, echo=FALSE}
+x <- c(6.1,5.7,6.0,6.5,6.0,5.7,6.1,5.8,5.9,6.0,6.2,6.0,6.3,6.2,6.0,6.2,6.0,5.7,6.2,5.8,5.7,6.3,6.2,5.7,6.2,6.1,5.9,6.5,5.4,6.7,5.9,6.1,5.9,5.9,6.1,6.1)
+```
+
+a) Maak een Histogram van deze data [1pt].
+```{r}
+hist(x, xlab="Breedte kies (in mm)", main="Vraag 3")
+```
+
+b) Beschrijf de vorm van de verdeling [1pt].  
+```
+Er zijn veel kiezen gemeten tussen de 5,6 mm en 6,2 mm. Van de andere breedtes is er veel minder van.
+```
+
+# Vraag 4 [2pt]
+Als een vrouw een zwangerschapstest afneemt, dan kan deze test positief (volgens de test is ze dan zwanger) of negatief (ze is niet zwanger) zijn. Stel, dat de vrouw echt zwanger is, dan is er een 98% kans dat de test ook positief is. Aan de andere kant, als de vrouw niet zwanger is, dan is er een 99% kans dat de test ook negatief is.
+
+a) Nu nemen 1000 vrouwen deze zwangerschapstest af en stel dat hiervan 100 ook echt zwanger zijn. Wat is de kans dat een willekeurige vrouw uit deze groep positief zal testen [1pt]?  
+```
+10% kans
+```
+
+b) Nu nemen 1000 vrouwen deze zwangerschapstest af en stel dat hiervan 50 ook echt zwanger zijn. Wat is de kans dat een willekeurige vrouw uit deze groep negatief zal testen [1pt]?  
+```
+5% kans
+```
+
+
+# Vraag 5 [4pt]
+Loodvergiftiging bij kinderen in de US is een punt van zorg. In een bepaalde populatie heeft 1 op 8 kinderen een te hoge concentratie lood in zijn bloed (30ug/dl of meer). Uit deze populatie wordt een willekeurige groep van 16 kinderen gekozen en de loodconcentratie bepaald. Wat is de kans dat:
+
+a) Geen van deze 16 kinderen een te hoge concentratie lood in zijn bloed heeft [1pt].
+```
+22,8% kans
+```
+
+b) 1 een te hoge concentratie lood in zijn bloed heeft [1pt].
+```
+18,75% kans
+```
+
+c) 2 een te hoge concentratie lood in zijn bloed heeft [1pt].
+```
+12,5% kans
+```
+
+d) 3 of meer een te hoge concentratie lood in zijn bloed heeft [1pt].
+```
+6,25% kans
+```
+
+
+# Vraag 6 [7pt]
+Gegeven de "weightloss" dataset (te gebruiken als variabele "wtloss"). Deze dataset bevat metingen van patienten hun gewicht (in Kg) gedurende een gewichts-rehabilitatie periode.  
+```{r, echo=FALSE}
+data(wtloss, package="MASS")
+```
+
+a) Maak een scatterplot van de gewichtsafname als functie van de dagen [1pt]
+```{r}
+plot(wtloss, main="Scatterplot Weight Loss")
+```
+
+b) Bereken de Pearson correlatiecoefficient [2pt]
+```{r}
+cor(wtloss, method = "pearson")
+```
+
+c) Bestaat er een lineair verband tussen de twee variabelen? [1pt]
+```
+Nee
+```
+
+d) Fit een regressielijn door de punten en voeg deze toe aan de scatterplot [2pt]
+
+
+e) Gebruik de regressielijn om snelheid van gewichtsafname te bepalen [1pt]
+
+
+
+# Vraag 7 [3pt]
+De cholesterolconcentratie in het bloedserum van 12- tot 14-jarige volgt een normaalverdeling met een gemiddelde van 155 mg/dl en een standaarddeviatie van 27 mg/dl. Wat is het percentage 12- tot 14-jarige met de volgende cholesterolconcentraties? 
+
+a)	164 of meer [1pt].
+```
+37,07% kans
+```
+
+b)	186 of minder [1pt].
+```
+7,49% kans
+```
+
+c)	Tussen de 100 en 132 [1pt].
+```
+Tussen de 97,88% en 80,23%
+```
+
+# Vraag 6 [8pt]
+Van een bepaalde vispopulatie volgt de individuele vislengte een normaalverdeling met een gemiddelde van 54 mm en een standaarddeviatie van 4.5 mm. 65.68% van de vissen zijn tussen de 51 en 60 mm lang. Gegeven een willekeurige selectie van 4 vissen uit deze populatie, bereken de kans dat:
+
+a)	Alle 4 de vissen een lengte tussen de 51 en 60 mm hebben [2pt].
+
+
+b)	De gemiddelde lengte van de 4 vissen tussen de 51 en 60 mm is [2pt].
+
+
+
+# Vraag 7 [4pt]
+Een farmaceut meet van een aantal ratten de dopamineconcentratie in de hersenen. De gemiddelde concentratie hiervan is 1.269 ng/g en de standaarddeviatie is 145 ng/g. 
+
+a)	Wat is de standaard error (afwijking) van het gemiddelde als: er 8 ratten zijn gemeten [2pt].  
+```
+51.265...
+```
+
+b)	Wat is de standaard error (afwijking) van het gemiddelde als: er 30 ratten zijn gemeten [2pt].  
+```
+26.473...
+```
+
+# Vraag 8 [2pt]
+Als onderdeel van een onderzoek naar de thymus ontwikkeling van kippen hebben onderzoekers de thymusklieren van 5 kippenembryo’s, na 14 dagen van incubatie, gewogen. De volgende gewichten zijn gemeten: [29.6, 21.5, 28.0, 34.6, 44.9]
+Voor deze dataset is het gemiddelde 31.7 mg en de standaarddeviatie 8.7 mg
+
+```{r, echo=FALSE}
+x <- c(29.6, 21.5, 28.0, 34.6, 44.9)
+```
+
+a)	Bereken de 90% betrouwbaarheidsinterval van het populatie gemiddelde [2pt].
+```
+𝜇 = 6,238...
+```
+
+# Vraag 9 [4pt]
+Om het effect van meststoffen op de groei van radijsjes te bepalen kweekt een onderzoeker 28 radijsjes met en 28 zonder meststoffen (de controle). Data weergegeven in de onderstaande vectoren.
+
+```{r, echo=FALSE}
+controle <- c(3.4,1.6,4.4,2.9,3.5,2.3,2.9,2.8,2.7,2.5,2.6,2.3,3.7,1.6,2.7,1.6,2.3,3.0,2.0,2.3,1.8,3.2,2.3,2.0,2.4,2.6,2.5,2.4)
+mest <- c(2.8,1.9,1.9,2.7,3.6,2.3,1.2,1.8,2.4,2.7,2.2,2.6,3.6,1.3,1.2,3.0,0.9,1.4,1.5,1.2,2.4,2.6,1.7,1.8,1.4,1.7,1.8,1.5)
+```
+
+a) Formuleer een $H_0$ en $H_A$ hypothese [1pt]
+```
+
+```
+
+
+b) Gebruik een t-test om uit te zoeken of de meststoffen een effect hebben op de groei (95%) [2pt]
+```{r}
+t.test(mest, controle, conf.level=0.95, paired=T)
+```
+
+c) Wat kun je concluderen uit dit experiment? [1pt]
+
+
+# Vraag 10 [5pt]
+Een ecoloog heeft de ruimtelijke verdeling van boomsoorten in een bos bepaald. In totaal heeft hij 21 are bestudeerd en onderverdeeld in 144 gebiedjes en elk gebiedje is 38 vierkante meter. In elk gebiedje heeft hij de bepaald of er "Wilgen" en "Berken" in groeien. De resultaten zijn weergegeven in de onderstaande tabel.
+
+```{r, echo=FALSE}
+obs <- matrix(c(30,10,49,55), nrow=2)
+dimnames(obs) <- list(Wilgen = c("Aanwezig", "Afwezig"), Berken = c("Aanwezig", "Afwezig"))
+obs.table <- as.table(obs)
+```
+
+a) De onderzoeker wil weten of Berken en Wilgen vaak samen voorkomen. Waarom moet hij de Chi-sqaure test hiervoor gebruiken? [1pt]
+
+b) Bereken de chi-square en geef de geschatte P-waarde voor de "non-directional" test [2pt]
+
+c) Kunnen we de null-hypothese, dat de twee soorten onafhankelijk verdeeld zijn van elkaar ($alpha$ = 0.01) verwerpen? [1pt]
+
+d) Geeft de data aan dat de bomen een aantrekkingskracht hebben tot elkaar? [1pt]
+
+
+

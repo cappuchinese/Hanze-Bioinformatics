@@ -1,0 +1,279 @@
+---
+title: "Statistiek 1-2 Hertentamen 2021"
+author: "Jasper Bosman"
+date: "29/6/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## Vraag 1 [5 pt]
+Gegeven de volgende dataset:
+
+	data (x): 14, 15, 13, 21, 15, 14, 26, 16, 20, 12
+```{r, echo=FALSE}
+d <- c(14, 15, 13, 21, 15, 14, 26, 16, 20, 12)
+```
+
+A.	Bereken de mediaan [1 pt]
+```{r}
+median(d)
+```
+B.	Bereken het gemiddelde [1 pt]
+```{r}
+mean(d)
+```
+C.	Bereken de interquartile range [1 pt]
+```{r}
+IQR(d)
+```
+D.	Maak een box-plot van de data [1 pt]
+```{r}
+boxplot(d, main="Vraag 1D")
+```
+E.	Hoe hoog/ laag moet een waarde zijn om als outliers gezien te worden? [1 pt]
+```
+Vanaf 12 tot 14 en vanaf 20 zijn het outliers
+```
+
+## Vraag 2 [6 pt]
+
+In een onderzoek naar de rensnelheid van een hagendissensoort, meten onderzoekers de afstand (in meters) die een hagedis in 2 minuten aflegt. Dit resulteert in de volgende metingen.
+
+	Afstand (x) in m: 18.4, 22.2, 24.5, 26.4, 27.5, 28.7, 30.6, 32.9, 32.9, 34.0, 34.8, 37.5, 42.1, 45.5, 45.5
+
+A.	Bereken de variatie [1 pt]
+```{r}
+var(d)
+```
+B.	Bereken de standaarddeviatie [1 pt]
+```{r}
+sd(d)
+```
+C.	Bereken de “range” [1 pt]
+```{r}
+range(d)
+```
+D.	Geef de zogenaamde “5-number summary en verklaar de resultaten” [2 pt]
+```{r}
+fivenum(d)
+```
+```
+Minimum, eerste kwartiel, mediaan, derde kwartiel, maximum
+```
+E.	Maak een histogram van de data [1 pt]
+```{r}
+hist(d, main="Vraag 2E", xlab="Afstand in meters")
+```
+
+```{r, echo=FALSE}
+d <- c(18.4, 22.2, 24.5, 26.4, 27.5, 28.7, 30.6, 32.9, 32.9, 34.0, 34.8, 37.5, 42.1, 45.5, 45.5)
+```
+
+
+## Vraag 3 [6 pt]
+
+In Nederland is ongeveer 9% van de bevolking linkshandig. Als we een random sample van 6 Nederlanders nemen, wat is de kans dat:
+
+A.	Geen van hen linkshandig zijn [2 pt]
+```
+56.8%
+```
+B.	Alle 6 linkshandig zijn [2 pt]
+```
+0.00005%
+```
+C.	Tenminste 1 linkshandig is [2 pt]
+```
+33.7%
+```
+
+```{r, echo=FALSE}
+dbinom(x=6, size=6, prob=0.91)
+dbinom(x=0, size=6, prob=0.91)
+dbinom(x=1, size=6, prob=0.09)
+```
+
+## Vraag 4 [8 pt]
+
+Het gewicht van mannelijke hersenen in Europa is ongeveer een normaal verdeeld, met een gemiddelde van 1400 gram en een standaarddeviatie van 100 gram. Wat is het percentage van hersenen die:
+
+A.	1500 gram of minder wegen [2 pt]
+```
+84.13%
+```
+B.	Die tussen de 1325 en 1500 gram zijn [2 pt]
+```
+61.47%
+```
+C.	1325 gram of meer wegen [2 pt]
+```
+77.34%
+```
+D.	Die tussen de 1200 en 1325 gram zijn [2 pt]
+```
+20.38%
+```
+
+## Vraag 5 [6 pt]
+
+De distributie van vleugeloppervlakte van een vlindertjes populatie heeft een gemiddelde van 41.5 cm2 met een standaarddeviatie van 4.7 cm2. Nu nemen we een heleboel random sample van de populatie met een n = 4.  Waarvan we het gemiddelde berekenen.
+
+A.	Wat is het gemiddelde van de sampling distributie (Y-bar)? [3 pt]
+```
+
+```
+B.	Wat is de standaarddeviatie van de sampling distributie (Y-bar)? [3 pt]
+```
+2.35
+```
+
+
+## Vraag 6 [4 pt]
+
+Professor Bosman geeft zijn klas de opdracht om via de computer random samples te nemen van een populatie die een gemiddelde van 50 en een standaarddeviatie van 9 mm heeft. Elke student neem nu een sample van n personen en berekent het sample gemiddelde. Prof Bosman komt er achter dan 68% van zijn studenten een sample gemiddelde heeft die tussen de 48.5 en 51.5 mm ligt. 
+
+A.	Hoe groot (n) waren de samples die de studenten namen van de populatie? [2 pt]
+
+```{r}
+
+```
+
+
+## Vraag 7 [4 pt]
+
+Je gooit een eerlijke Euro 20 keer op en noteert de uitkomst (kop of munt).
+
+A.	Wat is de kans dat je 10 keer kop gooit? [2 pt]
+```
+50%
+```
+B.	Wat is de kans dat je tenminste 5 keer kop gooit? [2 pt]
+```
+25%
+```
+
+
+## Vraag 8 [5 pt]
+
+In een studie naar de ontwikkeling van motten larven, meet de onderzoeker de hoofdbreedte van 50 larven. Het middelde van al deze metingen is 1.20 mm met een standaarddeviatie van 0.14mm. 
+
+A.	Construeer een 90% betrouwbaarheidsinterval voor het populatiegemiddelde [3 pt]
+
+* De critical value is iets meer dan 1.676, maar kleiner dan 1.684
+
+B.	Wat betekenen deze grenswaarde? [2 pt]
+
+* Deze grenswaarde laat zien welke uitkomsten worden geaccepteerd en welke niet. Alles wat wordt geaccepteerd, klopt volgens de $H_0$. Alles wat niet wordt geaccepteerd, valt onder de $H_A$.
+
+
+
+## Vraag 9 [4 pt]
+In een experiment, waarbij gekeken is naar de effecten van een antibioticum op bloedstollingstijd, zijn er 10 ratten behandeld met het des betreffende antibioticum en 10 ratten niet (de controlegroep). De onderstaande resultaten zijn verkregen:
+
+
+```{r}
+obs <- matrix(c(10, 25, 10 , 10, 23, 8), nrow=3)
+dimnames(obs) <- list(Stats = c("Aantal", "Gemiddelde tijd", "SD"), Conditie = c("Antibioticum", "controle"))
+(obs.table <- as.table(obs))
+```
+
+
+A.	Bereken de 90% betrouwbaarheidsinterval voor deze populatie gemiddelde. Gebruik de t-verdeling en 17 vrijheidsgraden. [4 pt]
+
+```
+Critical value is groter dan uitkomst:
+1.740>0.121
+```
+
+
+## Vraag 10 [7 pt]
+In een studie naar lichaamslengte verschillende tussen mannen en vrouwen, heeft een onderzoeker de lengte van bovenlichamen gemeten van 60 mannen en 50 vrouwen. De volgende resultaten zijn verkregen:
+
+```{r}
+obs <- matrix(c(60, 50, 78.42 , 81.44, 2.87, 3.52), nrow=2)
+dimnames(obs) <- list(Geslacht = c("Mannen", "Vrouwen"), Stats = c("Aantal", "Gemiddelde", "SD"))
+(obs.table <- as.table(obs))
+```
+
+A.	Gebruik deze distributie gegevens om random samples hiervan te trekken (gebruik n=1000) [2 pt]
+
+B.	Formuleer de H0 en Ha hypotheses (geen aannames) [1 pt]
+
+* $H_0$: Lengtes bovenlichamen is gelijk voor mannen en vrouwen.
+* $H_A$: Lengtes bovenlichamen verschillen bij mannen en vrouwen.
+
+C.	Gebruik een t-test om je hypothese te testen [2 pt]
+```
+Uitkomst: 4.539
+Volgens de t-test is het gemiddelde van vrouwen hoger dan mannen.
+```
+D.	Nu gaan we ervan uit dat mannen een langer bovenlichaam hebben dan vrouwen. Gebruik een t-test om dit aan te tonen. [2 pt]
+
+
+## Vraag 11 [5 pt]
+
+Om de effecten van twee middel die de vruchtbaarheid bij koeien zou moeten verbeteren, is er gekeken naar de relatie tussen de geven middelen en de hoeveelheid succesvolle kunstmatige inseminaties. De volgende resultaten zijn verkregen:
+
+```{r}
+obs <- matrix(c(21, 8, 21, 15), nrow=2)
+dimnames(obs) <- list(Koeien = c("Aantal koeien", "Aantal koeien drachtig"), Middel = c("Middel A", "Middel B"))
+(obs.table <- as.table(obs))
+```
+
+A.	Formuleer de H0 en Ha hypothese m.b.t. het middel en het aantal drachtige koeien [1 pt]
+
+* $H_0$: Koeien worden van beiden middelen even drachtig.
+* $H_A$: Koeien worden van het ene middel drachtiger.
+
+B.	Gebruik de juiste non-directionale statistische toets om je hypothese te testen gebruik 95% betrouwbaarheid [3 pt]
+```{r}
+
+```
+C.	Wat is je conclusie? [1 pt]
+
+
+## Vraag 12 [8 pt]
+
+In een studie naar de relatie tussen lichaamsgewicht en -lengte bij slangen zijn de volgden resultaten verkregen:
+
+	Lengte (x) in cm: 60, 69, 66, 64, 54, 67, 59, 65, 63
+	Gewicht (y) in gram: 136, 198, 194, 140, 93, 172, 116, 174, 145
+
+```{r, echo=FALSE}
+lengte <- c(60, 69, 66, 64, 54, 67, 59, 65, 63)
+gewicht <- c(136, 198, 194, 140, 93, 172, 116, 174, 145)
+```
+
+A.	Maakt een scatterplot van de data [1 pt]
+```{r, echo=FALSE}
+plot(lengte, gewicht, main="Scattorplot Vraag 12A")
+```
+B.	Bereken de Pearson correlatiecoëfficiënt [2 pt]
+```{r}
+cor(lengte, gewicht)
+```
+C.	Is er een relatie tussen lichaamslengte en gewicht bij slangen? [1 pt]
+```
+Ja, ze worden zwaarder als ze groter zijn.
+```
+D.	Bereken de regressielijn [2 pt]
+```{r}
+lm(gewicht~lengte)
+```
+E.	Plot deze regressielijn in de scatterplot [1 pt]
+```{r, echo=FALSE}
+plot(lengte, gewicht, main="Scattorplot Vraag 12D")
+abs <- lm(gewicht~lengte)
+abline(abs)
+```
+
+F.	Wat is de hoeveelheid lichaamsgewicht toename per centimeter lichaamslengte? [1 pt]
+```
+7.192 gram
+```
+
