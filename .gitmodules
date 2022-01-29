@@ -4,3 +4,15 @@
 [submodule "Thema06 - BLAST basics/difficultdata"]
 	path = Thema06 - BLAST basics/difficultdata
 	url = https://github.com/cappuchinese/difficultdata.git
+[submodule "Thema01 - Orde in Chaos/Introduction-Python"]
+	path = Thema01 - Orde in Chaos/Introduction-Python
+	url = https://github.com/cappuchinese/Introduction-Python
+[submodule "Thema02 - Energiehuishouding van de cel/pypovray"]
+	path = Thema02 - Energiehuishouding van de cel/pypovray
+	url = https://github.com/cappuchinese/pypovray
+[submodule "Thema03 - DNA harde schijf van de cel/flask-site"]
+	path = Thema03 - DNA harde schijf van de cel/flask-site
+	url = https://github.com/cappuchinese/flask-site
+[submodule "Thema04 - Meten is Weten/R-research"]
+	path = Thema04 - Meten is Weten/R-research
+	url = https://github.com/cappuchinese/R-research
