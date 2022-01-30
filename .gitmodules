@@ -16,3 +16,6 @@
 [submodule "Thema06 - BLAST basics/difficultdata"]
 	path = Thema06 - BLAST basics/difficultdata
 	url = https://github.com/cappuchinese/difficultdata.git
+[submodule "Thema06 - BLAST basics/databases2"]
+	path = Thema06 - BLAST basics/databases2
+	url = https://github.com/cappuchinese/databases2
