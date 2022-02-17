@@ -19,6 +19,6 @@
 [submodule "Thema06 - BLAST basics/databases2"]
 	path = Thema06 - BLAST basics/databases2
 	url = https://github.com/cappuchinese/databases2
-[submodule "Thema07 - Analyse van Genexpressie"]
-    path = Thema07 - Analyse van Genexpressie/Statistiek3
-    url = https://github.com/cappuchinese/Statistiek3
+[submodule "Thema07 - Analyse van Genexpressie/Statistiek3"]
+	path = Thema07 - Analyse van Genexpressie/Statistiek3
+	url = https://github.com/cappuchinese/Statistiek3
