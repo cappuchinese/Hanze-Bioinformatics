@@ -25,3 +25,6 @@
 [submodule "Thema07 - Analyse van Genexpressie/ads"]
 	path = Thema07 - Analyse van Genexpressie/A-DS
 	url = https://github.com/cappuchinese/Algorithms-Datastructures
+[submodule "Thema07 - Analyse van Genexpressie/Praktijkopdracht"]
+	path = Thema07 - Analyse van Genexpressie/Praktijkopdracht
+	url = https://github.com/cappuchinese/Gene-Expression-Analysis.git
