@@ -28,3 +28,6 @@
 [submodule "Thema07 - Analyse van Genexpressie/Praktijkopdracht"]
 	path = Thema07 - Analyse van Genexpressie/Praktijkopdracht
 	url = https://github.com/cappuchinese/Gene-Expression-Analysis.git
+[submodule "Thema08 - Introduction to Systems Biology/Praktijkopdracht"]
+	path = Thema08 - Introduction to Systems Biology/Praktijkopdracht
+	url = https://github.com/cappuchinese/Systems-Biology.git
