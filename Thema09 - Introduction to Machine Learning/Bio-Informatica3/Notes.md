@@ -14,6 +14,8 @@ Date: 2022-09
 + **Motif** : 3D-structure that appear different, evolutionary unrelated molecules. Unrelated to sequence.
 + **Classical structural biology**: Know what it does/what it's involved with, but don't know what it looks like. (Prions)
 + **Structural genomics**: Predicting the structure and predict function, based on genomics. (Homology)
++ **Homozygous deletion**: Zero copies; Deleting both allels in knockout
++ **Hemizygous deletion**: One copy is deleted and one copy remains
 
 ## Class assignments
 ### Which protein databases are used a lot recently?
@@ -34,7 +36,7 @@ Date: 2022-09
 
 #### EMBL-EBI
 + Alphafold and 3D structures
-+ Protein -> amino acid sequence
++ Protein -> amino acid sequMag ik straks iemandence
 
 #### UniProt
 + Computational & expert curated
@@ -72,12 +74,12 @@ Date: 2022-09
 
 ## Notes
 ### Which techniques are used on proteins to classify them?
-**Edman Degredation**: Afbreken van eerste aminozuur <br>
+**Edman Degredation**: Breaking the peptide bonds to get individual amino acids. <br>
 **SDS-PAGE**: jfhdgkjf <br>
 **MALDI-TOF**: Tube filled with protein gets blasted by UV laser. Smaller bits fly out, detector meet de tijd. <br>
 **PRIDE at EBI**: database for mass spectrometry
 
-### 1. Domain and motifs
+### Domain and motifs
 According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/faq.html#what-are-entry-types) definitions:
 + **Domain**: Distinct functional, structural or sequence units in biological context.
 + **Family**: The common evolutionary origin by related functions, structure or sequence.
@@ -87,7 +89,7 @@ According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/
 
 Post-translational modifications are physical  zijn fysische eigenschappen, ook voor klassificatie.
 
-### 2. Different structures
+### Different structures
 #### Three levels of organization for GO terms 
 1. Localization
 2. Biological process
@@ -114,11 +116,46 @@ Protein folding main approaches:
    2. Fold recognition (threading). A target sequence lacks identifiable sequence matches end yet may have folds in common with proteins of knows structure. (<35%)
    3. Ab initio prediction (template-free modelling). (<20%)
 
-#### 3.
+### Functional genomics
+Differences in phenotype, but with same genomics: (fig 14.1 ~ p.636)
+natural / experimental
++ DNA: SNPs; epigenomics / knockout collections transgenic animals
++ RNA: transcriptome profiling (RNA-seq) / RNA; siRNA
++ Protein: protein localization; protein-protein interactions; pathways / chemical modifications
 
-#### 4.
+8 model organisms to learn functional genomics: (p.638)
++ E. coli (Bacteria): Small, operons, easy to work with
++ Sccharomyces cerevisiae (Yeast): A lot of orthologues and paralogues
++ Arabidopsis thaliana (Plant): Big genome
++ Caenorhabditis elegans (Nematode): 
++ Drosophila melanogaster (Fruitfly): Linkage maps and recombination
++ Danio rerio (Zebrafish): Short reproduction time; Embryo is transparent (visualization transgenes)
++ Mus musculus (Mouse): Short reproduction time; ~10.000 knockout genes
++ Humans: Not a model per se; Nature plays big roles on diseases, radiation, etc.
 
-### Which tools are used for protein localisation?
+#### Reverse genetic screens
++ Large number of genes is systematically inhibited one by one (knockout, gene trapping, etc.). (Which phenotype comes forward from a different genotype?)
++ **Knockout**: p.653
++ **RNA silencing**: p.662
++ **Genetic footprinting**: Figure 14.15 ~ p.661
 
-### Protein functions
+#### Forward genetic screens
++ Starting point is phenotype. (Can a mutation lead to a different phenotype?)
++ **Chemical mutagenesis**: p.665
+
+#### Protein-protein interactions (p.672)
++ **Co-immunoprecipitation**: Specific antibodies directed against a protein are used to precipitate the protein along with any associated binding partners.
++ **Affinity chromatography**: a cDNA construct encodes a protein of interest in frame with glutathioone S-transferase (GST) or some other tag. A resin to which glutathione is covalently attached is incubated with a GST fusion protein, and it binds to the resin along with any binding partners. Irrelevant proteins are eluted and then the specific binding complex is eluted and its protein content is identified.
++ **Cross-linking**:
++ Skip last 3
+
+*Yeast two-hybrid system*
+
+#### From Pairwise Interactions to Protein Networks (p.678)
++ Assessment
++ choice
++ experimental
++ variation
++ categories
+
 
