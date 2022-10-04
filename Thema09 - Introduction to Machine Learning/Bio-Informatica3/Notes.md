@@ -63,7 +63,9 @@ Date: 2022-09
 + Structural en functional relations of proteins in PDB
 
 #### Dali Domain Dictionary
-+ Protein structure comparison, input PDB, returns structural information dendogram
++ Protein structure comparison
++ Input PDB
++ Returns structural information dendogram
 
 ### GO terms for human beta globin on three levels of organization
 
