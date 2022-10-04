@@ -31,3 +31,12 @@
 [submodule "Thema08 - Introduction to Systems Biology/Praktijkopdracht"]
 	path = Thema08 - Introduction to Systems Biology/Praktijkopdracht
 	url = https://github.com/cappuchinese/Systems-Biology.git
+[submodule "Thema09 - Introduction to Machine Learning/Intro-ML-EDA"]
+	path = Thema09 - Introduction to Machine Learning/Intro-ML-EDA
+	url = https://github.com/cappuchinese/Intro-ML-EDA.git
+[submodule "Thema09 - Introduction to Machine Learning/Intro-Java"]
+	path = Thema09 - Introduction to Machine Learning/Intro-Java
+	url = https://github.com/cappuchinese/Intro-Java.git
+[submodule "SLB3_LisaHu"]
+	path = SLB3_LisaHu
+	url = https://github.com/cappuchinese/SLB3_LisaHu.git
