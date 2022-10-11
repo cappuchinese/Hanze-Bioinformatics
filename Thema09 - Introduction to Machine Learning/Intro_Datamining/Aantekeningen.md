@@ -83,9 +83,9 @@ Met wat voor data test je je algoritme?
 + **Bootstrap**: *Random sampling with replacement*; Een bootstrap sample is ongeveer 2/3e originele data. Deze samples kunnen dan als soort vervanging gebruikt worden in de sets.
 
 ## Bayes
-+ **Formule van Bayes**: $P(A|B) = {P(B|A) \cdot P(A)} \over {P(B)}$
-+ **Naive Bayes**: $P(C|A_{n}) = {P(A_{n}|C) \cdot P(C)} \over {P(A_{n})}$
-  + $P(A_{n}|C) \cdot P(C)$ = likelyhood (L_{C})
++ **Formule van Bayes**: $P(A|B) = {{P(B|A) \cdot P(A)} \over {P(B)}}$
++ **Naive Bayes**: $P(C|A_{n}) = {{P(A_{n}|C) \cdot P(C)} \over {P(A_{n})}}$
+  + $P(A_{n}|C) \cdot P(C)$ = likelyhood ($L_{C}$)
   + $P(A_{n})$ = P(...) = $L_{C1} + L_{C2}$
 
 ## Attribute selection
