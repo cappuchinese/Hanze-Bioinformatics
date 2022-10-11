@@ -37,9 +37,9 @@ ML-algoritmen presteren beter als ze op meer data kunnen trainen ("ervaring")
 | numeriek    | regressie <br/>(bijv. lineair)  | dimensie reductie <br/>(bijv. PCA) |
 
 ## Entropie
-+ Entropie(p) = *<sub>(n, i = 1)</sub>&sum; &minus; p<sub>i</sub> &sdot; log(p<sub>i</sub>)* (*a priori*)
+$$\sum_{i=1}^{n} -p_{i} \cdot log(p_{i})$$
 + In recursie:
-  + H<sub>in</sub>: De entropie van de eerste tak
+  + H<sub>in</sub>: De entropie van de eerste tak (*a priori*)
   + H<sub>uit</sub> = *&sum; \<kans van de mogelijke staat> &sdot; \<entropie van de mogelijke staat>* over de tweede tak (*a posteriori*)
   + H<sub>gain</sub> &or; &Delta;H = H<sub>in</sub> &minus; H<sub>uit</sub>
   + H<sub>split</sub>: Entropie over de kansen dat het de `uit` staten kan worden
@@ -83,8 +83,10 @@ Met wat voor data test je je algoritme?
 + **Bootstrap**: *Random sampling with replacement*; Een bootstrap sample is ongeveer 2/3e originele data. Deze samples kunnen dan als soort vervanging gebruikt worden in de sets.
 
 ## Bayes
-+ **Formule van Bayes**: $a \ne 0$ P( A | B ) = ( P( B | A )  P( A )) / P( B )
-+ **Naive Bayes**: P( C | A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ... )
++ **Formule van Bayes**: $P(A|B) = {P(B|A) \cdot P(A)} \over {P(B)}$
++ **Naive Bayes**: $P(C|A_{n}) = {P(A_{n}|C) \cdot P(C)} \over {P(A_{n})}$
+  + $P(A_{n}|C) \cdot P(C)$ = likelyhood (L_{C})
+  + $P(A_{n})$ = P(...) = $L_{C1} + L_{C2}$
 
 ## Attribute selection
 + Single attribute evaluation (ranking)
