@@ -85,7 +85,7 @@ Met wat voor data test je je algoritme?
 ## Bayes
 + **Formule van Bayes**: $P(A|B) = {{P(B|A) \cdot P(A)} \over {P(B)}}$
 + **Naive Bayes**: $P(C|A_{n}) = {{P(A_{n}|C) \cdot P(C)} \over {P(A_{n})}}$
-  + $P(A_{n}|C) \cdot P(C)$ = likelyhood ($L_{C}$)
+  + $P(A_{n}|C) \cdot P(C) = (L_{C})$ (likelyhood)
   + $P(A_{n})$ = P(...) = $L_{C1} + L_{C2}$
 
 ## Attribute selection
