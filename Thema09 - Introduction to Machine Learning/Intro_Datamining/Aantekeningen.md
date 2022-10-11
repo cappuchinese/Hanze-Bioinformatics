@@ -10,9 +10,12 @@ Datum: 2022-09
 4. 
 
 ## Termen
-+ **Overfitting**: Buckets zijn te groot en voorspellingen vallen allemaal in dezelfde bucket(s).
++ **Overfitting**: Model bevat meer parameters dan de data kan verantwoorden.
+<img src="https://miro.medium.com/max/640/1*dl4EiM_Io0_5jYtxRfTGhQ.png">
 + **Forward pruning**: Geen takken bij nodes.
 + **Backward pruning**: Geen nodes en subtrees.
++ **A priori**: Onvoorwaardelijke kans; aantallen van totaal.
++ **A posteriori**: Voorwaardelijke kans; Kans van voorwaarde.
 
 ## Basis ML
 ML-algoritmen presteren beter als ze op meer data kunnen trainen ("ervaring")
@@ -34,10 +37,10 @@ ML-algoritmen presteren beter als ze op meer data kunnen trainen ("ervaring")
 | numeriek    | regressie <br/>(bijv. lineair)  | dimensie reductie <br/>(bijv. PCA) |
 
 ## Entropie
-+ Entropie(p) = *<sub>(n, i = 1)</sub>&sum; &minus; p<sub>i</sub> &sdot; log(p<sub>i</sub>)*
++ Entropie(p) = *<sub>(n, i = 1)</sub>&sum; &minus; p<sub>i</sub> &sdot; log(p<sub>i</sub>)* (*a priori*)
 + In recursie:
   + H<sub>in</sub>: De entropie van de eerste tak
-  + H<sub>uit</sub> = *&sum; \<kans van de mogelijke staat> &sdot; \<entropie van de mogelijke staat>* over de tweede tak
+  + H<sub>uit</sub> = *&sum; \<kans van de mogelijke staat> &sdot; \<entropie van de mogelijke staat>* over de tweede tak (*a posteriori*)
   + H<sub>gain</sub> &or; &Delta;H = H<sub>in</sub> &minus; H<sub>uit</sub>
   + H<sub>split</sub>: Entropie over de kansen dat het de `uit` staten kan worden
   + Gain ratio = H<sub>gain</sub> &minus; H<sub>split</sub>
@@ -80,5 +83,12 @@ Met wat voor data test je je algoritme?
 + **Bootstrap**: *Random sampling with replacement*; Een bootstrap sample is ongeveer 2/3e originele data. Deze samples kunnen dan als soort vervanging gebruikt worden in de sets.
 
 ## Bayes
-+ **Formule van Bayes**: P( A | B ) = ( P( B | A )  P( A )) / P( B )
++ **Formule van Bayes**: $a \ne 0$ P( A | B ) = ( P( B | A )  P( A )) / P( B )
 + **Naive Bayes**: P( C | A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>, ... )
+
+## Attribute selection
++ Single attribute evaluation (ranking)
+  + Bijv. OneR accuracy (InfoGain, GainRatio)
++ Attribute subset selectioon
+  + CFS: Correlation-based feature selection (scheme independent)
+  + Wrapper (Scheme dependent)
