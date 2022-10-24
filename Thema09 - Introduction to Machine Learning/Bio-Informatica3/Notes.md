@@ -69,17 +69,17 @@ Date: 2022-09
 + Input PDB
 + Returns structural information dendogram
 
-### GO terms for human beta globin on three levels of organization
-
-
 ## Notes
-### Which techniques are used on proteins to classify them?
-**Edman Degredation**: Breaking the peptide bonds to get individual amino acids. <br>
-**SDS-PAGE**: jfhdgkjf <br>
-**MALDI-TOF**: Tube filled with protein gets blasted by UV laser. Smaller bits fly out, detector meet de tijd. <br>
-**PRIDE at EBI**: database for mass spectrometry
+### Hidden Markov Model *(p.181-184)*
 
-### Domain and motifs
+### Protein classification techniques
++ **Edman Degredation**: Breaking the peptide bonds to get individual amino acids. <br>
++ **SDS-PAGE**: jfhdgkjf <br>
++ **MALDI-TOF**: Tube filled with protein gets blasted by UV laser. Smaller bits fly out, detector meet de tijd. <br>
++ **PRIDE at EBI**: database for mass spectrometry
+
+### Protein structures
+#### Domain and motifs (Primary structure)
 According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/faq.html#what-are-entry-types) definitions:
 + **Domain**: Distinct functional, structural or sequence units in biological context.
 + **Family**: The common evolutionary origin by related functions, structure or sequence.
@@ -87,9 +87,8 @@ According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/
 + **Repeat**: Short sequence repeated within protein.
 + **Site**: Active site, Binding site, Conserved site, PTM site (post-trans mod)
 
-Post-translational modifications are physical  zijn fysische eigenschappen, ook voor klassificatie.
+Post-translational modifications are physical features (also for classification).
 
-### Different structures
 #### Three levels of organization for GO terms 
 1. Localization
 2. Biological process
@@ -117,13 +116,13 @@ Protein folding main approaches:
    3. Ab initio prediction (template-free modelling). (<20%)
 
 ### Functional genomics
-Differences in phenotype, but with same genomics: (fig 14.1 ~ p.636)
+Differences in phenotype, but with same genomics: **(fig 14.1 ~ p.636)**
 natural / experimental
 + DNA: SNPs; epigenomics / knockout collections transgenic animals
 + RNA: transcriptome profiling (RNA-seq) / RNA; siRNA
 + Protein: protein localization; protein-protein interactions; pathways / chemical modifications
 
-8 model organisms to learn functional genomics: (p.638)
+8 model organisms to learn functional genomics: **(p.638)**
 + E. coli (Bacteria): Small, operons, easy to work with
 + Sccharomyces cerevisiae (Yeast): A lot of orthologues and paralogues
 + Arabidopsis thaliana (Plant): Big genome
@@ -135,23 +134,23 @@ natural / experimental
 
 #### Reverse genetic screens
 + Large number of genes is systematically inhibited one by one (knockout, gene trapping, etc.). (Which phenotype comes forward from a different genotype?)
-+ **Knockout**: p.653
-+ **RNA silencing**: p.662
-+ **Genetic footprinting**: Figure 14.15 ~ p.661
++ **Knockout**: **p.653**
++ **RNA silencing**: **p.662**
++ **Genetic footprinting**: **Figure 14.15 ~ p.661**
 
 #### Forward genetic screens
 + Starting point is phenotype. (Can a mutation lead to a different phenotype?)
-+ **Chemical mutagenesis**: p.665
++ **Chemical mutagenesis**: **p.665**
 
-#### Protein-protein interactions (p.672)
+#### Protein-protein interactions *(p.672)*
 + **Co-immunoprecipitation**: Specific antibodies directed against a protein are used to precipitate the protein along with any associated binding partners.
-+ **Affinity chromatography**: a cDNA construct encodes a protein of interest in frame with glutathioone S-transferase (GST) or some other tag. A resin to which glutathione is covalently attached is incubated with a GST fusion protein, and it binds to the resin along with any binding partners. Irrelevant proteins are eluted and then the specific binding complex is eluted and its protein content is identified.
++ **Affinity chromatography**: a cDNA construct encodes a protein of interest in frame with glutathione S-transferase (GST) or some other tag. A resin to which glutathione is covalently attached is incubated with a GST fusion protein, and it binds to the resin along with any binding partners. Irrelevant proteins are eluted and then the specific binding complex is eluted and its protein content is identified.
 + **Cross-linking**:
 + Skip last 3
 
 *Yeast two-hybrid system*
 
-#### From Pairwise Interactions to Protein Networks (p.678)
+#### From Pairwise Interactions to Protein Networks *(p.678)*
 + Assessment
 + choice
 + experimental
