@@ -74,19 +74,28 @@ Zie Table 4.7, p.141
 
 ## Cross-validation
 Met wat voor data test je je algoritme?
-+ **Resubstitutie**: Evaluatie op trainingsdata
-+ **Seperate testdata**: Evaluatie op afzonderlijke testdata
-+ **Holdout**: Splits de data op in trainingsdata en testdata
-+ **Repeated holdout**: Verhouding in trainingsdata en testdata veranderen voor elke instance
++ **Resubstitutie**: Evaluatie op trainingsdata.
++ **Seperate testdata**: Evaluatie op afzonderlijke testdata.
++ **Holdout**: Splits de data op in trainingsdata en testdata.
++ **Repeated holdout**: Verhouding in trainingsdata en testdata veranderen voor elke instance.
 + **nfold cross-validation**: Partities van de data gebaseerd op *n*-voud.
-+ **Leave One Out**: Cross validation waarbij n de hoeveelheid observaties aangeeft. Het algoritme wordt voor elke instance toegepast, waarbij alle andere instances gelden als trainingsdata en de gekozen als enkel-item testdata.
++ **Leave One Out**: Cross validation waarbij *n* de hoeveelheid observaties aangeeft. Het algoritme wordt voor elke instance toegepast, waarbij alle andere instances gelden als trainingsdata en de gekozen als enkel-item testdata.
 + **Bootstrap**: *Random sampling with replacement*; Een bootstrap sample is ongeveer 2/3e originele data. Deze samples kunnen dan als soort vervanging gebruikt worden in de sets.
 
 ## Bayes
 + **Formule van Bayes**: $P(A|B) = {{P(B|A) \cdot P(A)} \over {P(B)}}$
 + **Naive Bayes**: $P(C|A_{n}) = {{P(A_{n}|C) \cdot P(C)} \over {P(A_{n})}}$
-  + $P(A_{n}|C) \cdot P(C) = (L_{C})$ (likelyhood)
-  + $P(A_{n})$ = P(...) = $L_{C1} + L_{C2}$
+  + $P(A_{n}|C) \cdot P(C) = L_{C}$ (likelyhood)
+  + $P(A_{n})$ = P(...) = $L_{C1} + L_{C2}$<br><br>
++ In WEKA (nominal data):
+  + Telt vanaf 1 zodat berekeningen nooit 0 bevatten (*laplace estimator*).
+  + In kleine dataset valt het misschien op, in grote dataset niet te merken.
+
+## Nearest neighbor
++ Simpel en effectief, maar langzaam
++ Lazy learning: Neighbor is de kortste euclidische afstand tussen de training instance en test instance.
++ In WEKA: IBk
++ 
 
 ## Attribute selection
 + Single attribute evaluation (ranking)
