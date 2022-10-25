@@ -157,4 +157,54 @@ natural / experimental
 + variation
 + categories
 
+### Molecular Phylogeny and Evolution
+#### Molecular Clock Hypothesis (p.250)
 
+#### Positive and Negative Selection
++ More synonymous than non-synonymous: **Negative**
++ More non-synonymous than synonymous: **Positive**
++ Both equals: Neutral
+
+#### Neutral Theory of Molecular Evolution
++ The main cause of evolutionary change (or variability) due to random drift of mutant alleles.
+
+#### Consider using DNA, RNA or protein
+Depending on what 
+
+#### Properties of Trees
++ **OTU**: Operational Taxonomic Unit; Unit of the genome to base the tree on.
++ **Clade**: Groups of organisms including the common ancestor.
++ **Node**: Species that split into more branches.
++ **Edge**: The branch between nodes.
++ **Extant**: The leafs of the tree that are alive.
++ **Inferred/Internal node**: Do not have to be alive, sometimes based on calculations and not alignment.
++ **Bifurcating internal node**: Tree splits into two.
++ **Multifurcating internal node**: Tree splits into three or more.
++ **Outgroup tree root**: Taxon that's distantly related to the other OTUs.
++ **Mid tree root**: The longest edge contains the most mutations.
+
+[//]: # (TODO niet extant?)
+
++ Neighbor-joining tree styles: Rectangular, topology only, UPGMA, radial
++ Rectangular style: Branch lengths show 
++ UPGMA tree: Always contains a root
+
+#### Type of Trees
+##### Species Trees or Gene/Protein Trees
+
+##### DNA, RNA, Protein-Based Trees
+
+[//]: # (TODO p.269 fig.7.15)
+
+##### Five Stages of Phylogenetic Analysis (p.271)
++ Step 1: Sequence Acquisition
++ Step 2: Multiple Sequence Alignment
++ Step 3: Models of substitution
+  + Divergence
+  + Hamming: $D = n/N$; For alignment length *N* with *n* mutations, *D* is the divergence.
+  + Jukes and Cantor: $D = \minus{3}\over{4}ln(1\minus{4}\over{3}p)$
++ Step 4: Tree-Building Methods
+  + Distance-Based: Using one of named distance equations to build a distance matrix. (UPGMA and neighbor-joining)
+  + Character-Based: Looks at the alignment columns and creates all the possible trees (exhaustively), returning the best tree possible. (Maximum parsimony and likelihood)
++ Step 5: Bootstrapping
+  + Random values from columns 
