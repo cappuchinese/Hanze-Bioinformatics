@@ -7,6 +7,10 @@ Date: 2022-09
 1. [Glossary](#glossary)
 2. [Class assignments](#class-assignments)
 3. [Notes](#notes)
+   + [Hidden Markov Model](#hidden-markov-model)
+   + [Molecular Phylogeny and Evolution](#molecular-phylogeny-and-evolution)
+   + [Proteins](#proteins)
+   + [Functional Genomics](#functional-genomics)
 
 ## Glossary
 + **Curation** : Database entry checks
@@ -70,16 +74,95 @@ Date: 2022-09
 + Returns structural information dendogram
 
 ## Notes
-### Hidden Markov Model *(p.181-184)*
+### Hidden Markov Model
 
-### Protein classification techniques
+### Molecular Phylogeny and Evolution
+#### Molecular Clock Hypothesis
++ By comparing the  over time for every given gene, the rate of molecular evolution is constant.
++ ${{n}\over{100}} = 1 - e^{-(m/100)}$
++ Rate varies among different organisms.
++ Main force guiding the clock molecular clock is selection. Clock varies among different genes and across different parts of individual gene.
++ Only applicable when a gene in question 
+
+#### Positive and Negative Selection
++ **Positive selection**: Selected traits in a population that enhance survival.
++ **Negative selection**: Mutated traits reduce fitness.
++ More synonymous than nonsynonymous: **Negative**
++ More nonsynonymous than synonymous: **Positive**
++ Both equals: Neutral
+
+#### Neutral Theory of Molecular Evolution
++ The main cause of evolutionary change (or variability) due to random drift of mutant alleles.
++ Most nonsynonymous mutations are deleterious -> not observed as substitutions in the population.
+
+#### Properties of Trees
++ Nodes represent taxonomic units.
+  + **Node**: Species that split into more branches.
+  + **Edge**: The branch between two nodes.
+  + **OTU**: Operational Taxonomic Unit; Unit of the genome in *extant* species.
+    + **Extant**: The leafs of the tree (alive).
++ **Clade**: Groups of organisms including the common ancestor.
++ **Inferred/Internal node**: Ancestral species; Do not have to be alive, sometimes based on calculations and not alignment.
+  + **Bifurcating internal node**: Tree splits into two.
+  + **Multifurcating internal node**: Tree splits into three or more.
++ Tree roots represent the most recent common ancestor of all the given sequences.
+  + **Outgroup tree root**: Taxon that's distantly related to the other OTUs.
+  + **Mid tree root**: The longest edge contains the most mutations.
+
+#### Species Trees vs. Gene/Protein Trees
++ **Speciation event**: The moment a single ancestral species diverge into multiple new species.
++ Analysis of molecular evolution can be complicated by the time two species diverge:
+  1. The divergence of two genes from two species may have predated the speciation event -> may cause overestimation of branch lengths;
+  2. The topology of gene tree may differ from species tree.
+
+#### DNA, RNA, or Protein-Based Trees
++ Protein pros: lower rate of substitutions in protein relative to DNA -> more appropriate for comparisons across widely divergent species.
++ DNA pros:
+  + Allows study of synonymous and nonsynonymous mutations rated;
+  + Include directly observed substitutions (single-nucleotide, sequential, and coincidental).
+    + Single-nucleotide: only one of the observations;
+    + Sequential: in the middle of the codon;
+    + Coincidental: both observations are mutated;
+  + Can also show mutations without producing a mismatch (parallel, convergent, and back);
+    + Parallel: both observations are the same mutation;
+    + Convergent: change from ancestral sequence mutated into the same descendant sequence;
+    + Back: previous mutation mutated back to ancestral sequence.
+  + Noncoding regions can be analyzed. Conservation differs greatly in different regions;
+  + **Pseudogenes**: Nonfunctional DNA segments that resemble functional genes.
+  + Rate of transitions and transversions.
++ Step matrices describe number of steps required to change from one to another.
+
+#### Five Stages of Phylogenetic Analysis
+1. Sequence Acquisition
+   + Selection of sequences for analysis
+2. Multiple Sequence Alignment
+   + Inspect alignment to be sure that all sequences are homologous. 
+   + Lower the gap creation and/or gap extension penalties if distantly related sequences are aligned outside the block of others. 
+   + The complete sequence is not known for many genes -> analyse portions.
+   + Gaps could represent insertion or deletion that algorithms can't handle -> delete all the columns containing gaps.
+3. Models of substitution
+   + Divergence
+   + Hamming: $D = n/N$; For alignment length *N* with *n* mutations, *D* is the divergence.
+   + Jukes and Cantor: $D = -{{3}\over{4}}ln(1-{{4}\over{3}}p)$
+4. Tree-Building Methods
+   + Distance-Based: Using one of named distance equations to build a distance matrix. (UPGMA and neighbor-joining)
+   + Character-Based: Looks at the alignment columns and creates all the possible trees (exhaustively), returning the best tree possible. (Maximum parsimony and likelihood)
+5. Bootstrapping
+   + Random values from columns
+
+### Proteins
+#### Protein classification techniques
 + **Edman Degredation**: Breaking the peptide bonds to get individual amino acids. <br>
 + **SDS-PAGE**: jfhdgkjf <br>
 + **MALDI-TOF**: Tube filled with protein gets blasted by UV laser. Smaller bits fly out, detector meet de tijd. <br>
 + **PRIDE at EBI**: database for mass spectrometry
 
-### Protein structures
-#### Domain and motifs (Primary structure)
+#### Three levels of organization for GO terms 
+1. Localization
+2. Biological process
+3. Molecular function
+
+#### Primary structure
 According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/faq.html#what-are-entry-types) definitions:
 + **Domain**: Distinct functional, structural or sequence units in biological context.
 + **Family**: The common evolutionary origin by related functions, structure or sequence.
@@ -88,11 +171,6 @@ According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/
 + **Site**: Active site, Binding site, Conserved site, PTM site (post-trans mod)
 
 Post-translational modifications are physical features (also for classification).
-
-#### Three levels of organization for GO terms 
-1. Localization
-2. Biological process
-3. Molecular function
 
 #### Secundary structure
 + Secondary structure prediction from DSSP database -> DSSP code
@@ -156,51 +234,3 @@ natural / experimental
 + experimental
 + variation
 + categories
-
-### Molecular Phylogeny and Evolution
-#### Molecular Clock Hypothesis
-+ By comparing the  over time for every given gene, the rate of molecular evolution is constant.
-+ ${{n}\over{100}} = 1 \minus e^{\minus(m/100)}$
-
-#### Positive and Negative Selection
-+ More synonymous than non-synonymous: **Negative**
-+ More non-synonymous than synonymous: **Positive**
-+ Both equals: Neutral
-
-#### Neutral Theory of Molecular Evolution
-+ The main cause of evolutionary change (or variability) due to random drift of mutant alleles.
-
-#### Consider using DNA, RNA or protein
-Depending on what 
-
-#### Properties of Trees
-+ **OTU**: Operational Taxonomic Unit; Unit of the genome to base the tree on.
-+ **Clade**: Groups of organisms including the common ancestor.
-+ **Node**: Species that split into more branches.
-+ **Edge**: The branch between nodes.
-+ **Extant**: The leafs of the tree that are alive.
-+ **Inferred/Internal node**: Do not have to be alive, sometimes based on calculations and not alignment.
-+ **Bifurcating internal node**: Tree splits into two.
-+ **Multifurcating internal node**: Tree splits into three or more.
-+ **Outgroup tree root**: Taxon that's distantly related to the other OTUs.
-+ **Mid tree root**: The longest edge contains the most mutations.
-
-#### Type of Trees
-+ Species Trees or Gene/Protein Trees
-  + **Speciation event**: The moment a single ancestral species diverge into multiple new species.
-+ DNA, RNA, Protein-Based Trees
-
-[//]: # (TODO p.269 fig.7.15)
-
-##### Five Stages of Phylogenetic Analysis (p.271)
-+ Step 1: Sequence Acquisition
-+ Step 2: Multiple Sequence Alignment
-+ Step 3: Models of substitution
-  + Divergence
-  + Hamming: $D = n/N$; For alignment length *N* with *n* mutations, *D* is the divergence.
-  + Jukes and Cantor: $D = \minus{{3}\over{4}}ln(1\minus{{4}\over{3}}p)$
-+ Step 4: Tree-Building Methods
-  + Distance-Based: Using one of named distance equations to build a distance matrix. (UPGMA and neighbor-joining)
-  + Character-Based: Looks at the alignment columns and creates all the possible trees (exhaustively), returning the best tree possible. (Maximum parsimony and likelihood)
-+ Step 5: Bootstrapping
-  + Random values from columns 
