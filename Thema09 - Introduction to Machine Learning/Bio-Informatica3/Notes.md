@@ -75,6 +75,10 @@ Date: 2022-09
 
 ## Notes
 ### Hidden Markov Model
++ Generates a position-specific scoring system based on probability.
++ *States* are the different possibilities the model can follow.
++ *Transition functions* describe how to move from one state to another (mostly expressed as probabilities).
++ The lowest probability outcome is usually the best model.
 
 ### Molecular Phylogeny and Evolution
 #### Molecular Clock Hypothesis
