@@ -36,7 +36,7 @@ Date: 2022-09
 
 #### EMBL-EBI
 + Alphafold and 3D structures
-+ Protein -> amino acid sequMag ik straks iemandence
++ Protein -> amino acid sequence
 
 #### UniProt
 + Computational & expert curated
@@ -158,7 +158,9 @@ natural / experimental
 + categories
 
 ### Molecular Phylogeny and Evolution
-#### Molecular Clock Hypothesis (p.250)
+#### Molecular Clock Hypothesis
++ By comparing the  over time for every given gene, the rate of molecular evolution is constant.
++ ${{n}\over{100}} = 1 \minus e^{\minus(m/100)}$
 
 #### Positive and Negative Selection
 + More synonymous than non-synonymous: **Negative**
@@ -183,16 +185,10 @@ Depending on what
 + **Outgroup tree root**: Taxon that's distantly related to the other OTUs.
 + **Mid tree root**: The longest edge contains the most mutations.
 
-[//]: # (TODO niet extant?)
-
-+ Neighbor-joining tree styles: Rectangular, topology only, UPGMA, radial
-+ Rectangular style: Branch lengths show 
-+ UPGMA tree: Always contains a root
-
 #### Type of Trees
-##### Species Trees or Gene/Protein Trees
-
-##### DNA, RNA, Protein-Based Trees
++ Species Trees or Gene/Protein Trees
+  + **Speciation event**: The moment a single ancestral species diverge into multiple new species.
++ DNA, RNA, Protein-Based Trees
 
 [//]: # (TODO p.269 fig.7.15)
 
@@ -202,7 +198,7 @@ Depending on what
 + Step 3: Models of substitution
   + Divergence
   + Hamming: $D = n/N$; For alignment length *N* with *n* mutations, *D* is the divergence.
-  + Jukes and Cantor: $D = \minus{3}\over{4}ln(1\minus{4}\over{3}p)$
+  + Jukes and Cantor: $D = \minus{{3}\over{4}}ln(1\minus{{4}\over{3}}p)$
 + Step 4: Tree-Building Methods
   + Distance-Based: Using one of named distance equations to build a distance matrix. (UPGMA and neighbor-joining)
   + Character-Based: Looks at the alignment columns and creates all the possible trees (exhaustively), returning the best tree possible. (Maximum parsimony and likelihood)
