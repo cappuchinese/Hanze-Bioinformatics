@@ -11,8 +11,9 @@ Date: 2022-09
    + [Molecular Phylogeny and Evolution](#molecular-phylogeny-and-evolution)
    + [Proteins](#proteins)
    + [Functional Genomics](#functional-genomics)
+4. [Guest classes](#guest-classes)
 
-## Glossary
+# Glossary
 + **Curation** : Database entry checks
 + **Redundancy** : How much double code it contains (Lower is more single code)
 + **Motif** : 3D-structure that appear different, evolutionary unrelated molecules. Unrelated to sequence.
@@ -21,43 +22,43 @@ Date: 2022-09
 + **Homozygous deletion**: Zero copies; Deleting both allels in knockout
 + **Hemizygous deletion**: One copy is deleted and one copy remains
 
-## Class assignments
-### Which protein databases are used a lot recently?
+# Class assignments
+## Which protein databases are used a lot recently?
 + Description of the database
 + What kind of information can be found?
 + Level of curation
 + Redundancy
 
-#### PIR-PSD
+### PIR-PSD
 + Protein sequences
 + Superfamily classification
 + Expert curation
 
-#### Alphafold Protein Structure Database
+### Alphafold Protein Structure Database
 + Best reviewed database at the moment
 + Protein structure and sequence
 + Structure based on AI
 
-#### EMBL-EBI
+### EMBL-EBI
 + Alphafold and 3D structures
 + Protein -> amino acid sequence
 
-#### UniProt
+### UniProt
 + Computational & expert curated
 + Universal information
 
-#### PDB
+### PDB
 + Crystal structures
 + Search based on experimental method, X-ray resolution and organism
 
-#### CATH
+### CATH
 + Classification:
   + Classes
   + Architecture: Orientation of secundary structure
   + Topology: Fold families, non-homologous
   + Superfamily: Common ancestor, homologous
 
-#### SCOP
+### SCOP
 + Classification:
   + Protein type: Groups folds and IUPRs into four groups: soluble, membrane, fibrous and intrinsically disordered.
   + Classes: Brings together folds and IUPRs.
@@ -68,38 +69,38 @@ Date: 2022-09
 + Manual and computational inspection
 + Structural en functional relations of proteins in PDB
 
-#### Dali Domain Dictionary
+### Dali Domain Dictionary
 + Protein structure comparison
 + Input PDB
 + Returns structural information dendogram
 
-## Notes
-### Hidden Markov Model
+# Notes
+## Hidden Markov Model
 + Generates a position-specific scoring system based on probability.
 + *States* are the different possibilities the model can follow.
 + *Transition functions* describe how to move from one state to another (mostly expressed as probabilities).
 + The lowest probability outcome is usually the best model.
 
-### Molecular Phylogeny and Evolution
-#### Molecular Clock Hypothesis
+## Molecular Phylogeny and Evolution
+### Molecular Clock Hypothesis
 + By comparing the  over time for every given gene, the rate of molecular evolution is constant.
 + ${{n}\over{100}} = 1 - e^{-(m/100)}$
 + Rate varies among different organisms.
 + Main force guiding the clock molecular clock is selection. Clock varies among different genes and across different parts of individual gene.
 + Only applicable when a gene in question 
 
-#### Positive and Negative Selection
+### Positive and Negative Selection
 + **Positive selection**: Selected traits in a population that enhance survival.
 + **Negative selection**: Mutated traits reduce fitness.
 + More synonymous than nonsynonymous: **Negative**
 + More nonsynonymous than synonymous: **Positive**
 + Both equals: Neutral
 
-#### Neutral Theory of Molecular Evolution
+### Neutral Theory of Molecular Evolution
 + The main cause of evolutionary change (or variability) due to random drift of mutant alleles.
 + Most nonsynonymous mutations are deleterious -> not observed as substitutions in the population.
 
-#### Properties of Trees
+### Properties of Trees
 + Nodes represent taxonomic units.
   + **Node**: Species that split into more branches.
   + **Edge**: The branch between two nodes.
@@ -113,13 +114,13 @@ Date: 2022-09
   + **Outgroup tree root**: Taxon that's distantly related to the other OTUs.
   + **Mid tree root**: The longest edge contains the most mutations.
 
-#### Species Trees vs. Gene/Protein Trees
+### Species Trees vs. Gene/Protein Trees
 + **Speciation event**: The moment a single ancestral species diverge into multiple new species.
 + Analysis of molecular evolution can be complicated by the time two species diverge:
   1. The divergence of two genes from two species may have predated the speciation event -> may cause overestimation of branch lengths;
   2. The topology of gene tree may differ from species tree.
 
-#### DNA, RNA, or Protein-Based Trees
+### DNA, RNA, or Protein-Based Trees
 + Protein pros: lower rate of substitutions in protein relative to DNA -> more appropriate for comparisons across widely divergent species.
 + DNA pros:
   + Allows study of synonymous and nonsynonymous mutations rated;
@@ -136,7 +137,7 @@ Date: 2022-09
   + Rate of transitions and transversions.
 + Step matrices describe number of steps required to change from one to another.
 
-#### Five Stages of Phylogenetic Analysis
+### Five Stages of Phylogenetic Analysis
 1. Sequence Acquisition
    + Selection of sequences for analysis
 2. Multiple Sequence Alignment
@@ -154,19 +155,19 @@ Date: 2022-09
 5. Bootstrapping
    + Random values from columns
 
-### Proteins
-#### Protein classification techniques
+## Proteins
+### Protein classification techniques
 + **Edman Degredation**: Breaking the peptide bonds to get individual amino acids. <br>
 + **SDS-PAGE**: jfhdgkjf <br>
 + **MALDI-TOF**: Tube filled with protein gets blasted by UV laser. Smaller bits fly out, detector meet de tijd. <br>
 + **PRIDE at EBI**: database for mass spectrometry
 
-#### Three levels of organization for GO terms 
+### Three levels of organization for GO terms 
 1. Localization
 2. Biological process
 3. Molecular function
 
-#### Primary structure
+### Primary structure
 According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/faq.html#what-are-entry-types) definitions:
 + **Domain**: Distinct functional, structural or sequence units in biological context.
 + **Family**: The common evolutionary origin by related functions, structure or sequence.
@@ -176,11 +177,11 @@ According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/
 
 Post-translational modifications are physical features (also for classification).
 
-#### Secundary structure
+### Secundary structure
 + Secondary structure prediction from DSSP database -> DSSP code
 + Ramachandran plot
 
-#### Tertiary structure
+### Tertiary structure
 Protein folding main approaches:
 1. X-ray crystallography
    + used to determine 80% of structures
@@ -197,14 +198,14 @@ Protein folding main approaches:
    2. Fold recognition (threading). A target sequence lacks identifiable sequence matches end yet may have folds in common with proteins of knows structure. (<35%)
    3. Ab initio prediction (template-free modelling). (<20%)
 
-### Functional genomics
+## Functional genomics
 Differences in phenotype, but with same genomics: **(fig 14.1 ~ p.636)**
 natural / experimental
 + DNA: SNPs; epigenomics / knockout collections transgenic animals
 + RNA: transcriptome profiling (RNA-seq) / RNA; siRNA
 + Protein: protein localization; protein-protein interactions; pathways / chemical modifications
 
-8 model organisms to learn functional genomics: **(p.638)**
+### 8 model organism **(p.638)**
 + E. coli (Bacteria): Small, operons, easy to work with
 + Sccharomyces cerevisiae (Yeast): A lot of orthologues and paralogues
 + Arabidopsis thaliana (Plant): Big genome
@@ -214,17 +215,17 @@ natural / experimental
 + Mus musculus (Mouse): Short reproduction time; ~10.000 knockout genes
 + Humans: Not a model per se; Nature plays big roles on diseases, radiation, etc.
 
-#### Reverse genetic screens
+### Reverse genetic screens
 + Large number of genes is systematically inhibited one by one (knockout, gene trapping, etc.). (Which phenotype comes forward from a different genotype?)
 + **Knockout**: **p.653**
 + **RNA silencing**: **p.662**
 + **Genetic footprinting**: **Figure 14.15 ~ p.661**
 
-#### Forward genetic screens
+### Forward genetic screens
 + Starting point is phenotype. (Can a mutation lead to a different phenotype?)
 + **Chemical mutagenesis**: **p.665**
 
-#### Protein-protein interactions *(p.672)*
+### Protein-protein interactions *(p.672)*
 + **Co-immunoprecipitation**: Specific antibodies directed against a protein are used to precipitate the protein along with any associated binding partners.
 + **Affinity chromatography**: a cDNA construct encodes a protein of interest in frame with glutathione S-transferase (GST) or some other tag. A resin to which glutathione is covalently attached is incubated with a GST fusion protein, and it binds to the resin along with any binding partners. Irrelevant proteins are eluted and then the specific binding complex is eluted and its protein content is identified.
 + **Cross-linking**:
@@ -232,9 +233,51 @@ natural / experimental
 
 *Yeast two-hybrid system*
 
-#### From Pairwise Interactions to Protein Networks *(p.678)*
+### From Pairwise Interactions to Protein Networks *(p.678)*
 + Assessment
 + choice
 + experimental
 + variation
 + categories
+
+# Guest classes
+## Molecular Dynamics (Tsjerk Wassenaar)
+All biochemical systems are dynamic: everything is always moving.
++ DNA is boring: structure is not important.
++ mRNA is already more interesting: it folds itself and has different functions.
++ Proteins are the molecular machines, executing all the functions in an organism: structure is interesting.
+
+### Molecular Dynamics Simulations
++ Simulations are done with Newton's laws of motion. Quantum mechanics is also possible, but is much more complex and expensive.
++ The amount of atoms calculated lies between ten thousands to millions.
++ A simulation can sometimes take 9 billion steps.
++ If all the positions and forces are known, the past and future can be predicted.
+
+### Techniques
++ **Force field**
+  + Contains functions to describe the interactions (e.a. interactions between polar and apolar parts).
+  + Also contains functions describing bonds, angles and dihedrals.
+  + Over 2 bonds is not predictable anymore, only with calculations.
++ **X-ray Crystallography**
+  + Crystallizing proteins by stacking layers on top of each other.
++ **Electron Microscopy**
+  + Freeze the parts and take loads of pictures.
+  + Combine the pictures for analysis.
++ **Nucleaer Magnetic Resonance Spectroscopy**
+  + Check the average distance between atoms.
+
+### Simulation process
+1. Structure
+2. Topology
+3. Solvation
+4. Equilibration
+5. Production
+6. Analysis
+    + Quality assurance (Validate the results)
+    + Validation (Does it match the experimental data)
+    + Prediction (What are the observations in further experiments)
+
++ There are different levels for the length of simulations. To up the efficiency, the same atoms are clustered to create "superatoms".
++ Cystosol is a good example of a simulation. It contains 35% water and the rest is RNA, proteins, sugars, etc.
++ Different kinds of membranes have different kinds of lipids. Humans have around 1000 different lipids.
++ New on the market: simulations on organelles instead of proteins.
