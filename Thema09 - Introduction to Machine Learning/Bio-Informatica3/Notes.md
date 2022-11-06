@@ -240,6 +240,53 @@ natural / experimental
 + variation
 + categories
 
+## Bacteria and Archea: Genome Analysis
+### Classification Bacteria and Archaea
+1. Morphology
+   + Different forms of the cell
+2. Genome size
+   + 1 gene per kilobase
+   + Obligate symbiont/parasite have smaller genome size than host associated or free-living
+3. Lifestyle
+   + Extracellular 
+   + Facultatively intracellular
+   + Extremophilic *
+   + Epicellular bacteria *
+   + Obligate intracellular and symbiotic *
+   + Obligate intracellular and parasitic *<br>
+   \* These tend to have smaller genome size
+4. Relevance human disease
+   + Some bacteria cause the same disease
+5. Molecular phylogeny using rRNA
+   + MSA of 16S and other small variants rRNA
+   + Proteobacteria, Firmicutes, Actinabacteria, and Bacteroidetes are the only phyla easy to grow in a lab, which accounts for 90% of the known bacteria: Very unreliable, only 1% of all bacteria
+6. Molecular phylogeny using other molecules
+
+### The Human Microbiome
+1. There are extraordinary bioinformatics challenges associated with these types of projects.
+2. Most of the microbiome is bacterial.
+3. There is no single reference microbiome due to between individuals.
+4. Each body region does have characteristic bacteriall species within each hindividual, oftern occur in common between individuals.
+5. ???????????????? TODO
+
+### Analysis of Bactarial and Archaeal Genomes
+#### Nucleotide Composition
++ GC has three hydrogen bonds, making is more stable in extreme heat.
++ Eukaryotic, archaeal and bacteria have different GC percentages (~60%, 20-35%, 20-66%).
++ GC can fluctuate within genome due to horizontal gene transfer.
++ Makes the work of bioinformatics harder. Which is the original gene?
+
+#### Finding Genes
+1. Open reading frames (ORF): Start to stop codon
+2. Consensus for ribosome binding (Shine-Dalgarno): Short sequence that implies ribosome binding
+3. Pattern of codon usage
+4. Homology of putative gene to other genes
++ GLIMMER (a HMM) sequentially scans nucleotide sequences for particular kmers and estimates the probability of that pattern occuring in a real gene.
+
+#### Gene annotation
++ Used to assign functions to genes and to reconstruct metabolic pathways or other higher levels of gene function.
++ RAST is an automated annotation webservice.
+
 # Guest classes
 ## Molecular Dynamics (Tsjerk Wassenaar)
 All biochemical systems are dynamic: everything is always moving.
