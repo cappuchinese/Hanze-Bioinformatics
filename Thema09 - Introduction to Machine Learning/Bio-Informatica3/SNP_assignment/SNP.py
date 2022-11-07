@@ -1,30 +1,46 @@
 #!/usr/bin/python3
 
 """
-Program description
+Calculate the severity score of the mutation on a single position in the sequence, based on the MSA.
 """
 
 __author__ = "Lisa Hu"
 __date__ = 09.2022
 
 # IMPORT
-from Bio import AlignIO
+import sys
+import argparse
+import csv
 import blosum
-from _data import codons
+
+# Possible amino acids
+aminos = ["A", "C", "D", "E", "F", "G", "H", "I", "K", "L", "M", "N", "P", "Q", "R", "S", "T",
+          "V", "W", "Y"]
 
 
-class ConservedDNA:
+class SNP:
     """
-    Check how conserved the sequence is for each position (
+    Check how conserved the sequence is for each position
     """
-    def __init__(self, matrix=62):
-        self.data = {}
+    def __init__(self, msa, matrix=62):
+        self.msa_file = msa
         self.matrix = blosum.BLOSUM(matrix, 0)
+        self.data = {}
+        self.scores = {}
+        self.__load_msa(self.msa_file)
 
     def __str__(self):
-        return "TODO"
+        return f"Score the alignments of myoglobin with BLOSUM matrix"
 
-    def _load_msa(self, filename: str):
+    def run(self, position, mutation, out_file):
+        self._calculate_score(position, mutation)
+        if out_file:
+            self._write_out()
+        else:
+            for key, value in self.scores.items():
+                print(f"{key}: {value}")
+
+    def __load_msa(self, filename: str):
         """
         Read the MSA file and create a dictionary entry for each protein sequence:
             {"header" : "protein sequence"}
@@ -40,104 +56,119 @@ class ConservedDNA:
                     header = line
                 # Add each line of the sequence of according header to its list
                 else:
+                    # Change the gap symbol to the one used in the blosum
+                    line = line.replace("-", "*")
                     self.data[header].append(line.strip())
 
         # Join the list of sequence lines to create 1 string
         for i in self.data:
             self.data[i] = "".join(self.data[i])
 
-    def _calculate_score(self):
-        # alignment = AlignIO.read(msa, "fasta")
-        # for record in alignment:
-        #     print(record)
-        scores = {}
-        score = 0
+    def _calculate_score(self, position: int = None, mutation: str = None):
+        """
+        Calculate the score of each alignment
+        :param position: The position of the mutation in the sequence.
+                         Default is None -> calculates the scores of MSA
+        :return:
+        """
         # Get a list of all the sequences
         seqs = list(self.data.values())
+
+        # Maximum and minimum score of each position and the division number
+        min_score = min(self.matrix.values()) * len(seqs)
+        max_score = max(self.matrix.values()) * len(seqs)
+        points_factor = (abs(min_score) + abs(max_score)) / 10
+        score = abs(min_score)
+
         # Zip through the sequences
-        x = list(zip(*seqs))
-        for i, align in enumerate(x):
-            for letter in align[1:]:
-                score += self.matrix[f"{align[0]}{letter}"]
-            scores[i] = score
-        print(scores)
-        # TODO mean center the scores
+        alignments = list(zip(*seqs))
+        if position is None:
+            for i, align in enumerate(alignments):
+                for letter in align[1:]:
+                    score += self.matrix[f"{align[0]}{letter}"]
+                score /= points_factor
+                self.scores[i] = score
+                score = abs(min_score)
+        else:
+            # Check if position is not out of bounds
+            try:
+                alignments[position - 1]
+            except Exception as e:
+                print(e)
+
+            # Add the mutation to the alignment of given position
+            letters = (*alignments[position - 1], mutation)  # position-1 due to 0 indexing
+            # Score the mutation
+            for letter in letters[1:]:
+                score += self.matrix[f"{letters[0]}{letter}"]
+                score /= points_factor
+                self.scores[position] = score
+
+    def _write_out(self):
+        with open("output.csv", "w") as csv_out:
+            writer = csv.writer(csv_out)
+            writer.writerow(["Position", "Score"])
+            for key, value in self.scores.items():
+                writer.writerow([key, value])
 
 
-class SeveritySNP:
-    """
-    TODO
-    """
-    def __init__(self, proref: dict, matrix: int = 62):
-        """
-        Initialize class variables
-        :param proref: Reference protein that is aligned other sequences
-        :param matrix: Either n ϵ {45,50,62,80,90} or path to create BLOSUM matrix (default 62)
-        """
-        self.proref = proref
-        self.matrix = blosum.BLOSUM(matrix, 0)
+def main():
+    parser = argparse.ArgumentParser(description="Calculates the score for SNPs at a given position"
+                                                 " based on given MSA. "
+                                                 "Score is based on a scale from 1-10.")
+    parser.add_argument("-f",
+                        metavar="file",
+                        type=str,
+                        required=True,
+                        help="Path to the MSA (MultiFASTA only) [REQUIRED]")
+    parser.add_argument("-matrix",
+                        type=int,
+                        default=62,
+                        choices=[45, 50, 62, 80, 90],
+                        help="BLOSUM matrix for calculating. Options: [45, 50, 62, 80, 90]"
+                             "(Default = 62)")
+    parser.add_argument("-out",
+                        action="store_true",
+                        default=False,
+                        help="Option for creating an output file. "
+                             "If not given, scores will print in terminal")
+    parser.add_argument("-p",
+                        metavar="position",
+                        type=int,
+                        default=None,
+                        required="-m" in sys.argv,
+                        help="Position of the mutation. "
+                             "If none is given, the scores of every position will be given")
+    parser.add_argument("-m",
+                        metavar="mutation",
+                        type=str,
+                        default=None,
+                        choices=aminos,
+                        required="-p" in sys.argv,
+                        help="The amino acid mutation of given position.")
+    args = parser.parse_args()  # Parse commandline arguments
 
-    def __str__(self) -> str:
-        """
-        String representation of the class
-        """
-        return "TODO"
+    # Initialize SNP
+    snp = SNP(args.f, args.matrix)
+    snp.run(args.p, args.m, args.out)
 
-    def calc_score(self):
-        """
-        TODO
-        """
-        pass
-
-
-class DNAConverter:
-    """
-    Class that converts a DNA sequence into a protein sequence
-    """
-
-    def __init__(self, infile: str, offset: int = 0):
-        """
-        Initialize class variables
-        :param infile: Path of a single DNA sequence in FASTA format
-        :param offset: n ϵ {0, 1, 2} to offset the reading frame (default 0)
-        """
-        self.infile = infile
-        self.offset = offset
-        self.inseq = {}
-
-    def __str__(self) -> str:
-        """
-        String representation of the class
-        """
-        return f"Input file: {self.infile}\nOffset: {self.offset}"
-
-    def __load_input(self):
-        """
-        Read the input sequence into a dictionary
-        :return: string with the input sequence
-        """
-        with open(self.infile, encoding="utf8") as inseq:
-            header = [line.strip() for line in inseq if line.startswith(">")]
-            lines = [line.strip() for line in inseq if not line.startswith(">")]
-            self.inseq[header] = "".join(lines)
-
-    def __convert_dna(self):
-        """
-        Convert the DNA sequence to the protein sequence with the offset
-        """
-        protein = ""
-        for i in self.inseq:
-            seq = self.inseq[i]
-            # Input sequence with the given offset
-            seq = seq[self.offset:]
-            # Get the steps to go through the sequence
-            for startpos in range(0, len(seq), 3):
-                codon = seq[startpos:startpos+3]
-                protein += codons[codon]
-            self.inseq[i] = protein
+    # Continuous mutation input
+    flag = 1
+    while flag:
+        flag = input("Do you want to give a new mutation? (Y/n): ")
+        if flag.lower() == "y":
+            position = int(input("Position: "))
+            mutation = input("Mutation: ")
+            snp.run(position, mutation, args.out)
+            continue
+        elif flag.lower() == "n":
+            flag = 0
+        else:
+            print("Input error: Exiting program...")
+            return 1
+    return flag
 
 
 if __name__ == '__main__':
-    test = ConservedDNA()
-    test._load_msa("msa.txt")
-    test._calculate_score()
+    EXITCODE = main()
+    sys.exit(EXITCODE)
