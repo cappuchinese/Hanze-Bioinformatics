@@ -33,7 +33,15 @@ class SNP:
         return f"Score the alignments of myoglobin with BLOSUM matrix"
 
     def run(self, position, mutation, out_file):
-        self._calculate_score(position, mutation)
+        """
+        Main function of the class to run the different variables
+        :param position: Position of mutation
+        :param mutation: Amino acid mutation
+        :param out_file: Boolean option for output file
+        :return:
+        """
+        factor, score = self._calculate_scores()
+        self._calculate_mutation(position, mutation, factor, score)
         if out_file:
             self._write_out()
         else:
@@ -56,23 +64,21 @@ class SNP:
                     header = line
                 # Add each line of the sequence of according header to its list
                 else:
-                    # Change the gap symbol to the one used in the blosum
-                    line = line.replace("-", "*")
                     self.data[header].append(line.strip())
 
         # Join the list of sequence lines to create 1 string
         for i in self.data:
             self.data[i] = "".join(self.data[i])
 
-    def _calculate_score(self, position: int = None, mutation: str = None):
+    def _calculate_scores(self):
         """
         Calculate the score of each alignment
-        :param position: The position of the mutation in the sequence.
-                         Default is None -> calculates the scores of MSA
         :return:
         """
         # Get a list of all the sequences
         seqs = list(self.data.values())
+        # Zip through alignments
+        self.alignments = list(zip(*seqs))
 
         # Maximum and minimum score of each position and the division number
         min_score = min(self.matrix.values()) * len(seqs)
@@ -80,29 +86,43 @@ class SNP:
         points_factor = (abs(min_score) + abs(max_score)) / 10
         score = abs(min_score)
 
-        # Zip through the sequences
-        alignments = list(zip(*seqs))
-        if position is None:
-            for i, align in enumerate(alignments):
-                for letter in align[1:]:
-                    score += self.matrix[f"{align[0]}{letter}"]
-                score /= points_factor
-                self.scores[i] = score
-                score = abs(min_score)
-        else:
-            # Check if position is not out of bounds
-            try:
-                alignments[position - 1]
-            except Exception as e:
-                print(e)
+        # Calculate the score of every position
+        for i, align in enumerate(self.alignments):
+            for letter in align[1:]:
+                score += self.matrix[f"{align[0]}{letter}"]
+            score /= points_factor
+            self.scores[i] = score
+            score = abs(min_score)
 
-            # Add the mutation to the alignment of given position
-            letters = (*alignments[position - 1], mutation)  # position-1 due to 0 indexing
-            # Score the mutation
-            for letter in letters[1:]:
-                score += self.matrix[f"{letters[0]}{letter}"]
-                score /= points_factor
-                self.scores[position] = score
+        return points_factor, score
+
+    def _calculate_mutation(self, position: int, mutation: str, points_factor: int, score: int):
+        """
+        :param position: The position of the mutation in the sequence.
+                         Default is None -> calculates the scores of MSA
+        :param mutation: The amino acid mutation
+        :param points_factor: Scale of the score
+        :param score: Base score (see _calculate_scores())
+        :return: 
+        """
+        # position-1 due to 0 indexing
+        position -= 1
+        # Check if position is not out of bounds
+        try:
+            self.scores[position]
+        except Exception as e:
+            print(e)
+
+        # Get the alignments
+        seqs = list(self.data.values())
+        alignments = list(zip(*seqs))
+        # Add the mutation to the alignment of given position
+        letters = (*alignments[position], mutation)
+        # Score the mutation
+        for letter in letters[1:]:
+            score += self.matrix[f"{letters[0]}{letter}"]
+            score /= points_factor
+            self.scores[f"M{position+1}"] = score
 
     def _write_out(self):
         with open("output.csv", "w") as csv_out:
@@ -131,21 +151,18 @@ def main():
                         action="store_true",
                         default=False,
                         help="Option for creating an output file. "
-                             "If not given, scores will print in terminal")
+                             "If not given, scores will print in terminal.")
     parser.add_argument("-p",
                         metavar="position",
                         type=int,
-                        default=None,
-                        required="-m" in sys.argv,
-                        help="Position of the mutation. "
-                             "If none is given, the scores of every position will be given")
+                        required=True,
+                        help="Position of the mutation. [REQUIRED]")
     parser.add_argument("-m",
                         metavar="mutation",
                         type=str,
-                        default=None,
                         choices=aminos,
-                        required="-p" in sys.argv,
-                        help="The amino acid mutation of given position.")
+                        required=True,
+                        help="The amino acid mutation of given position. [REQUIRED]")
     args = parser.parse_args()  # Parse commandline arguments
 
     # Initialize SNP
