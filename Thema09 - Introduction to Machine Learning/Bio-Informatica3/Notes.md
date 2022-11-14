@@ -155,19 +155,26 @@ Date: 2022-09
 5. Bootstrapping
    + Random values from columns
 
-## Proteins
+## Protein analysis and Proteomics
 ### Protein classification techniques
-+ **Edman Degredation**: Breaking the peptide bonds to get individual amino acids. <br>
-+ **SDS-PAGE**: jfhdgkjf <br>
-+ **MALDI-TOF**: Tube filled with protein gets blasted by UV laser. Smaller bits fly out, detector meet de tijd. <br>
-+ **PRIDE at EBI**: database for mass spectrometry
++ **Edman Degredation**: Breaking the peptide bonds to get individual amino acids. Does not work with bigger proteins due to cleaving errors.
++ **SDS-PAGE**: Gel elecrophoresis. Proteins move through gel 
+  + 2D protein gels are most useful for studying relatively abundant proteins. Loads of low expressed proteins are harder to characterize.
++ **MALDI-TOF**: Tube filled with protein gets blasted by UV laser. Smaller bits fly out, detector measures time -> velocity.
+  + Targeted workflow: Determine concentration of proteins of interest.
+  + Discovery workflow: Protein identification.
++ **PRIDE at EBI**: Database for mass spectrometry
 
 ### Three levels of organization for GO terms 
-1. Localization
+1. Cellular component
 2. Biological process
 3. Molecular function
 
-### Primary structure
+### Domain and motifs
++ Domains express a certain gene.
++ Motifs are short, conserved sequences.
+
+### Physical properties
 According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/faq.html#what-are-entry-types) definitions:
 + **Domain**: Distinct functional, structural or sequence units in biological context.
 + **Family**: The common evolutionary origin by related functions, structure or sequence.
@@ -177,19 +184,32 @@ According to [InterPro](https://interpro-documentation.readthedocs.io/en/latest/
 
 Post-translational modifications are physical features (also for classification).
 
-### Secundary structure
+### Protein function
+1. Biochemical function
+2. Functional assignment based on homology
+3. Function based on structure
+4. Function based on ligand binding specificity
+5. Function based on cellular process
+6. Function based on biological process
+7. Function based on "proteomics" or "functional genomics"
+
+### Protein structure
+#### Primary structure
++ Amino acid sequence
+
+#### Secundary structure
 + Secondary structure prediction from DSSP database -> DSSP code
 + Ramachandran plot
 
-### Tertiary structure
+#### Tertiary structure
 Protein folding main approaches:
 1. X-ray crystallography
    + used to determine 80% of structures
    + requires high protein concentration
    + requires crystals
    + able to trace amino acid side chains
-   + earliest structure solved was myoglobin
-2. NMR
+   + in vivo: tested on living, whole organisms
+2. NMR (nuclear magnetic resonance)
    + Magnetic field applied to proteins in solution
    + largest structures: 350 amino acids (40kD)
    + does not require crystallization
@@ -199,11 +219,24 @@ Protein folding main approaches:
    3. Ab initio prediction (template-free modelling). (<20%)
 
 ## Functional genomics
-Differences in phenotype, but with same genomics: **(fig 14.1 ~ p.636)**
-natural / experimental
-+ DNA: SNPs; epigenomics / knockout collections transgenic animals
-+ RNA: transcriptome profiling (RNA-seq) / RNA; siRNA
-+ Protein: protein localization; protein-protein interactions; pathways / chemical modifications
+Genome-wide study of the function of DNA as well as the nucleic acid and protein products encoded by DNA.
+
+Natural variation:
++ How do genes, RNA transcripts, and proteins change across body regions, or across development stages?
++ **DNA**: SNPs; epigenomics
++ **RNA**: transcriptome profiling (RNA-seq)
++ **Protein**: protein localization; protein-protein interactions; pathways
+
+Functional disruptions:
++ Deletions, insertions, inversions, translocations
++ Experimental:
+  + **DNA**: knockout genes
+  + **RNA**: RNA interference; small interfering RNA
+  + **Protein**: Chemical modification
++ In nature:
+  + **DNA**: Chromosomal changes
+  + **RNA**: nonsense-mediated RNA decay (premature terminator)
+  + **Protein**: myasthenia gravis (muscle disease)
 
 ### 8 model organism **(p.638)**
 + E. coli (Bacteria): Small, operons, easy to work with
