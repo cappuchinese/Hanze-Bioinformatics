@@ -12,6 +12,7 @@ Datum: 2022-09
 ## Termen
 + **Overfitting**: Model bevat meer parameters dan de data kan verantwoorden.
 <img src="https://miro.medium.com/max/640/1*dl4EiM_Io0_5jYtxRfTGhQ.png">
+
 + **Forward pruning**: Geen takken bij nodes.
 + **Backward pruning**: Geen nodes en subtrees.
 + **A priori**: Onvoorwaardelijke kans; aantallen van totaal.

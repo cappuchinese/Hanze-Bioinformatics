@@ -214,7 +214,7 @@ Protein folding main approaches:
    + largest structures: 350 amino acids (40kD)
    + does not require crystallization
 3. Prediction
-   1. Homology modelling (comparative modelling). This is most useful when a template (protein of interest) can be matched to proteins of known structures. (<50% sequence recognition)
+   1. Homology modeling (comparative modelling). This is most useful when a template (protein of interest) can be matched to proteins of known structures. (<50% sequence recognition)
    2. Fold recognition (threading). A target sequence lacks identifiable sequence matches end yet may have folds in common with proteins of knows structure. (<35%)
    3. Ab initio prediction (template-free modelling). (<20%)
 
