@@ -40,9 +40,6 @@
 [submodule "SLB3_LisaHu"]
 	path = SLB3_LisaHu
 	url = https://github.com/cappuchinese/SLB3_LisaHu.git
-[submodule "Thema10 - Research Web Applications/ILST-Lab-Equipment-Booking-Tool"]
-	path = Thema10 - Research Web Applications/ILST-Lab-Equipment-Booking-Tool
-	url = https://github.com/Vincent-Talen/ILST-Lab-Equipment-Booking-Tool.git
 [submodule "Thema03 - DNA harde schijf van de cel/Informatics3"]
 	path = Thema03 - DNA harde schijf van de cel/Informatics3
 	url = https://github.com/cappuchinese/Informatics3.git
