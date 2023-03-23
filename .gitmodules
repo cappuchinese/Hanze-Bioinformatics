@@ -43,3 +43,9 @@
 [submodule "Thema03 - DNA harde schijf van de cel/Informatics3"]
 	path = Thema03 - DNA harde schijf van de cel/Informatics3
 	url = https://github.com/cappuchinese/Informatics3.git
+[submodule "Minor - HPHTB/dataprocessing"]
+	path = Minor - HPHTB/dataprocessing
+	url = https://github.com/cappuchinese/dataprocessing.git
+[submodule "Minor - HPHTB/Adv-Datamining"]
+	path = Minor - HPHTB/Adv-Datamining
+	url = https://github.com/cappuchinese/Adv-Datamining.git
