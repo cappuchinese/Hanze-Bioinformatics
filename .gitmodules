@@ -37,9 +37,6 @@
 [submodule "Thema09 - Introduction to Machine Learning/Intro-Java"]
 	path = Thema09 - Introduction to Machine Learning/Intro-Java
 	url = https://github.com/cappuchinese/Intro-Java.git
-[submodule "SLB3_LisaHu"]
-	path = SLB3_LisaHu
-	url = https://github.com/cappuchinese/SLB3_LisaHu.git
 [submodule "Thema03 - DNA harde schijf van de cel/Informatics3"]
 	path = Thema03 - DNA harde schijf van de cel/Informatics3
 	url = https://github.com/cappuchinese/Informatics3.git
